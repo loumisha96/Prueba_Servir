@@ -70,5 +70,6 @@ class mySQLConex {
     public function verObjetoSimple($rs) {
         while ($obj = mysqli_fetch_array($rs)){return $obj;}
     }
+    
 
 }

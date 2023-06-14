@@ -1,7 +1,14 @@
 <?php
 require '../../models/depto/depto_model.php';
+require '../../models/conexion.php';
 
-class DepartamentController extends DepartmentModel{
+class DepartmentController extends DepartmentModel{
+    private $conex;
+
+    function __construct(){
+        $this->conex = new mySQLConex();
+      }
+
 
     public function deptoView(){
         require '../../views/depto/depto_view.php';
@@ -11,7 +18,15 @@ class DepartamentController extends DepartmentModel{
     }
     
     public function getDepartments(){
+        $query = "SELECT idDepartamento, nombre FROM Departamento";
+        $rs = $this->conex->execSQL($query);
 
+        $data = array();
+        while ($detalle = mysqli_fetch_assoc($rs)){
+            $data[] = $detalle;
+        }
+
+        echo json_encode($data);
     }
     public function updateDepartment(){
 
@@ -23,8 +38,8 @@ class DepartamentController extends DepartmentModel{
 
 if(isset($_GET['action'])){
     $action = $_GET['action'];
-    $departmentController = new DepartmentController();
-    switch($departmentController){
+    $departmentController = new DepartmentController(); 
+    switch($action){
         case "view":
             $departmentController->deptoView();
             break;
@@ -40,7 +55,7 @@ if(isset($_GET['action'])){
         case "delete":
             $departmentController->deleteDepartment();
             break;
-
+            
     }
 }
 

@@ -27,14 +27,14 @@
                 <div class="card col-6" style="width: 18rem; margin: 10px;  float: left; border-radius: 30px;" >
                     <img src="views/images/empleado.png" class="card-img-top" alt="..." style="border-radius: 30px">
                     <div class="card-footer">
-                        <a  class="btn btn-light btn-lg" href="http://localhost/Servir_Examen/controllers/user/user_controller.php">Empleados</a>
+                        <a  class="btn btn-light btn-lg" href="http://localhost/Servir_Examen/controllers/employee/employee_controller.php?action=view">Empleados</a>
                     </div>
                     
                 </div>
                 <div class="card col-6" style="width: 18rem; margin: 10px; border-radius: 30px;" >
                     <img src="views/images/depto.png" class="card-img-top" alt="..." style="border-radius: 30px; ">
                     <div class="card-footer">
-                        <a  class="btn btn-light btn-lg" href="http://localhost/Servir_Examen/controllers/depto/depto_controller.php">Departamentos</a>
+                        <a  class="btn btn-light btn-lg" href="http://localhost/Servir_Examen/controllers/depto/depto_controller.php?action=view">Departamentos</a>
                     </div>
                 </div>
             </div>
