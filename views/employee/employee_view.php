@@ -75,16 +75,14 @@
                         <div  class="container" style="padding: 20px" >
 
                             <div class="row">
-                            <div class="col-4"></div>
-                            <div class="col-6">
-                                
-                                <input id="txtCodigo" class="form-control"  placeholder="Type to search code..." v-model="empleado.codigoEmpleado">
-                                
-                            </div>
-                            <div class="col-2">
-                            <button type="button" class="btn btn-outline-info" v-on:click="search()"><i class="fa fa-search" aria-hidden="true"></i>
-                                </button>
-                            </div>
+                                <div class="col-4"></div>
+                                <div class="col-6">
+                                    <input id="txtCodigo" class="form-control"  placeholder="Type to search code..." v-model="empleado.codigoEmpleado">
+                                </div>
+                                <div class="col-2">
+                                <button type="button" class="btn btn-outline-info" v-on:click="search()"><i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </div>
                             </div>
                             <br>
                             <div class="row">
@@ -116,7 +114,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-primary" v-on:click="savedEmployee()">Guardar</button>
                                     <button type="button" class="btn btn-outline-danger" v-on:click="deleteEmployee()">Eliminar</button>
-                                    <button type="button" class="btn btn-outline-warning" v-on:click="cancelar()">Cancelar</button>
+                                    <button type="button" class="btn btn-outline-warning" v-on:click="cancelar()">Borrar</button>
                                 </div>
                             </div>
                             <div class="row">

@@ -93,7 +93,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-primary" v-on:click="savedDepartment()">Guardar</button>
                                     <button type="button" class="btn btn-outline-danger" v-on:click="deleteDepartment()">Eliminar</button>
-                                    <button type="button" class="btn btn-outline-warning" v-on:click="cancelar()">Cancelar</button>
+                                    <button type="button" class="btn btn-outline-warning" v-on:click="cancelar()">Borrar</button>
                                 </div>
                             </div>
                             <div class="row">

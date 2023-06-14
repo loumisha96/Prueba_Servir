@@ -42,6 +42,9 @@ var employee = new Vue({
         },
         deleteEmployee(){
             deleteEmployee_()
+        },
+        cancelar(){
+            cancelar_()
         }
     },
     async created() {
@@ -59,7 +62,13 @@ async function administrar_(){
     this.employee.error =false
     myModal.toggle()
 }
-
+async function cancelar_(){
+    this.employee.empleado.codigoEmpleado=""
+    this.employee.empleado.nombres=""
+    this.employee.empleado.apellidos=""
+    this.employee.fecha=""
+    document.getElementById('txtCodigo').readOnly=false;
+}
 async function getDepartamentos(){
     await fetch('http://localhost/Servir_Examen/controllers/depto/depto_controller.php?action=getDepartments')
     .then(response => response.json())

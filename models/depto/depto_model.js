@@ -28,6 +28,9 @@ var department = new Vue({
          },
          deleteDepartment(){
             deleteDepartment_()
+         },
+         cancelar(){
+            cancelar_()
          }
     },
     async created() {
@@ -43,7 +46,13 @@ async function administrar_(){
     this.department.error =false
     myModal.toggle()
 }
-
+function cancelar_(){
+    this.department.departamento.codigoDepto=""
+    this.department.departamento.nombre=""
+    this.department.departamento.descripcion=""
+    
+    document.getElementById('txtCodigo').readOnly=false;
+}
 async function getDepartmentByID(){
     await fetch('http://localhost/Servir_Examen/controllers/depto/depto_controller.php?action=getDepartmentByID&id='+this.department.departamento.codigoDepto)
     .then(response => response.json())
