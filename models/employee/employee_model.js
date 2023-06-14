@@ -31,7 +31,8 @@ var employee = new Vue({
     },
     methods: {
         administrar(){
-            myModal.toggle()
+            
+            administrar_()
         },
         savedEmployee(){
             savedEmployee_()
@@ -52,7 +53,7 @@ var employee = new Vue({
 var myModal = new bootstrap.Modal(document.getElementById('modal1'),{
     keyboard:false
   })
-async function administrar(){
+async function administrar_(){
     
     this.employee.succes=false
     this.employee.error =false
@@ -64,7 +65,7 @@ async function getDepartamentos(){
     .then(response => response.json())
     .then(data =>{
         this.employee.departamentos= data;
-        console.log(data)
+        
     })
     .catch(error=> console.log(error))
 }
@@ -95,6 +96,7 @@ async function getEmployeeByID(){
         })
     .catch(error=> console.log(error))
 }
+
 function convertDate(){
     if(employee.fecha!=""){
 
@@ -123,7 +125,6 @@ async function savedEmployee_(){
                 this.employee.succes=true
                 this.employee.error =false
                 this.employee.sms = data.sms
-                this.employee.empleado.codigoEmpleado = data.codigo;
                 getEmployees()
             }else{
                 this.employee.sms = data.sms
@@ -163,7 +164,7 @@ async function deleteEmployee_(){
                 this.employee.succes=true
                 this.employee.error =false
                 this.employee.sms = data.sms
-                this.employee.empleado.codigoEmpleado = data.codigo;
+                
                 getEmployees()
             }else{
                 this.employee.sms = data.sms

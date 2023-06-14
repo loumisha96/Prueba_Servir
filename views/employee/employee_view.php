@@ -14,7 +14,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     
     <title>Examen-Servir</title>
 </head>
@@ -65,81 +65,87 @@
             </div>
         </div>
         <div class="modal" tabindex="-1" id="modal1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Administrar Empleados</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div  class="container" style="padding: 20px" >
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Administrar Empleados</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div  class="container" style="padding: 20px" >
 
-                        <div class="row">
-                           <div class="col-5"></div>
-                           <div class="col-7">
-                            <label for="exampleDataList" class="form-label">Codigo</label>
-                            <input id="txtCodigo" class="form-control"  placeholder="Type to search..." v-model="empleado.codigoEmpleado">
-                            <button type="button" class="btn btn-outline-info" v-on:click="search()">Search
-                            </button>
-                           </div>
-                        </div>
-                        <div class="row">
-                            
-                                <label for="exampleDataList" class="form-label" >Nombres: </label>
-                                <input class="form-control" id="name"  v-model="empleado.nombres">
-                                <label for="exampleDataList" class="form-label" >Apellidos: </label>
-                                <input class="form-control" id="lastName" v-model="empleado.apellidos" >
-
-                            
-                            
-                        </div>
-                        <div class="row">
+                            <div class="row">
+                            <div class="col-4"></div>
                             <div class="col-6">
-                                <label for="exampleDataList" class="form-label" type="date">Fecha de Nacimiento: </label>
-                                <input class="form-control" id="date" v-model="fecha">        
-                            </div>
-                            <div class="col-6">
-                                <label for="exampleDataList" class="form-label" >Departamento: </label>
-                                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="selectDepartment" v-model="empleado.idDepartamento">
-                                    <option selected>Elige un departamento</option>
-                                    <option v-bind:value="d.idDepartamento" v-for="d in departamentos">{{d.nombre}}</option>
-                                </select>
+                                
+                                <input id="txtCodigo" class="form-control"  placeholder="Type to search code..." v-model="empleado.codigoEmpleado">
                                 
                             </div>
-                            
-                        </div>
-                        <div class="row">
-                        <div class="col-3">
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-outline-primary" v-on:click="savedEmployee()">Guardar</button>
-                                <button type="button" class="btn btn-outline-danger" v-on:click="deleteEmployee()">Eliminar</button>
+                            <div class="col-2">
+                            <button type="button" class="btn btn-outline-info" v-on:click="search()"><i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
                             </div>
-                        </div>
-                        <div class="col-9">
+                            </div>
                             <br>
-                            <div v-show="succes" class="alert alert-success alert-dismissible" id="myAlert">
-                                <strong>Success!</strong>{{sms}}
-                                <button type="button" class="btn-close" v-on:click="closeToast()"></button>
+                            <div class="row">
+                                
+                                    <label for="exampleDataList" class="form-label" >Nombres: </label>
+                                    <input class="form-control" id="name"  v-model="empleado.nombres">
+                                    <label for="exampleDataList" class="form-label" >Apellidos: </label>
+                                    <input class="form-control" id="lastName" v-model="empleado.apellidos" >
+
+                                
+                                
                             </div>
-                            <div v-show="error" class="alert alert-success alert-dismissible" id="myAlert">
-                                <strong>Error!</strong> {{sms}}
-                
-                                <button type="button" class="btn-close" v-on:click="closeToast()"></button>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="exampleDataList" class="form-label" type="date">Fecha de Nacimiento: </label>
+                                    <input class="form-control" id="date" v-model="fecha">        
+                                </div>
+                                <div class="col-6">
+                                    <label for="exampleDataList" class="form-label" >Departamento: </label>
+                                    <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="selectDepartment" v-model="empleado.idDepartamento">
+                                        <option selected>Elige un departamento</option>
+                                        <option v-bind:value="d.idDepartamento" v-for="d in departamentos">{{d.nombre}}</option>
+                                    </select>
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-primary" v-on:click="savedEmployee()">Guardar</button>
+                                    <button type="button" class="btn btn-outline-danger" v-on:click="deleteEmployee()">Eliminar</button>
+                                    <button type="button" class="btn btn-outline-warning" v-on:click="cancelar()">Cancelar</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                            
+                            <div class="col-12">
+                                <br>
+                                <div v-show="succes" class="alert alert-success alert-dismissible" id="myAlert">
+                                    <strong>Success!</strong>{{sms}}
+                                    <button type="button" class="btn-close" v-on:click="closeToast()"></button>
+                                </div>
+                                <div v-show="error" class="alert alert-success alert-dismissible" id="myAlert">
+                                    <strong>Error!</strong> {{sms}}
+                    
+                                    <button type="button" class="btn-close" v-on:click="closeToast()"></button>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        </div>
 
                     </div>
+                    
+                    
+                    
 
+                    
                 </div>
-                
-                
-                
-
-                
             </div>
         </div>
-    </div>
     
     </div>
     <script src="../../models/employee/employee_model.js"></script>

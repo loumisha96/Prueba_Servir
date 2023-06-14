@@ -43,7 +43,7 @@
         </div>
         <div class="row" style="padding: 30px">
             <div class="col-2"></div>
-            <div class="col-8" v-for="c in cines" >
+            <div class="col-8" >
                 <table class="table table-dark">
                     <thead>
                         <th>Código</th>
@@ -51,16 +51,76 @@
                         <th>Descripción</th>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td >Larry the Bird</td>
-                            <td>@twitter</td>
+                    <tr class="table-active" v-for="d in departamentos">
+                            <th scope="row">{{d.codigoDepto}}</th>
+                            <td >{{d.nombre}}</td>
+                            <td>{{d.descripcion}}</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </div>
+
+
+        <div class="modal" tabindex="-1" id="modal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Administrar Departamentos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div  class="container" style="padding: 20px" >
+
+                            <div class="row">
+                            <div class="col-4"></div>
+                                <div class="col-6">
+                                    <input id="txtCodigo" class="form-control"  placeholder="Type to search code..." v-model="empleado.codigoEmpleado">
+                                </div>
+                                <div class="col-2">
+                                <button type="button" class="btn btn-outline-info" v-on:click="search()"><i class="fa fa-search" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                    <label for="exampleDataList" class="form-label" >Nombre: </label>
+                                    <input class="form-control" id="name"  v-model="departamento.nombre">
+                                    <label for="exampleDataList" class="form-label" >Descripcion: </label>
+                                    <input class="form-control" id="lastName" v-model="departamento.descripcion" >     
+                            </div>
+                            <div class="row">
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-primary" v-on:click="savedDepartment()">Guardar</button>
+                                    <button type="button" class="btn btn-outline-danger" v-on:click="deleteDepartment()">Eliminar</button>
+                                    <button type="button" class="btn btn-outline-warning" v-on:click="cancelar()">Cancelar</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                            
+                            <div class="col-12">
+                                <br>
+                                <div v-show="succes" class="alert alert-success alert-dismissible" id="myAlert">
+                                    <strong>Success!</strong>{{sms}}
+                                    <button type="button" class="btn-close" v-on:click="closeToast()"></button>
+                                </div>
+                                <div v-show="error" class="alert alert-success alert-dismissible" id="myAlert">
+                                    <strong>Error!</strong> {{sms}}
+                    
+                                    <button type="button" class="btn-close" v-on:click="closeToast()"></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        </div>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    
     </div>
-    <script src="inicio.js"></script>
+    <script src="../../models/depto/depto_model.js"></script>
 </body>
 </html>
